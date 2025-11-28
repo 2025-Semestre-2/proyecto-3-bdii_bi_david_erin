@@ -1,0 +1,289 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/27/2025 9:15:43 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DAVIDNOTEBOOK"
+  DTS:CreatorName="DAVIDNOTEBOOK\garci"
+  DTS:DTSID="{B57FF68F-A58C-40DD-9617-461C5EE2B17F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5467.0"
+  DTS:LocaleID="5130"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{71312350-0DD5-4925-AA83-AC00B098F96C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Extract"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Contenedor de secuencias"
+      DTS:DTSID="{652269EB-CCE1-44B8-866E-26918533A6FF}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Extract">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Extract\Customers"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{F0E4F0A6-99CD-4175-9C11-AB47A60358D0}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Customers"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Ext Customers.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Extract\Ext Products"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{801d5da9-f1b2-47b2-94f1-5572d478d972}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Ext Products"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Ext Products.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Extract\OrderItems"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{c29bf2ed-f94e-4df4-a2cf-4699015d1ce1}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="OrderItems"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Ext OrderItems.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Extract\Orders"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{cd0d32d5-ee34-4e88-a51a-1c00f3d2a28d}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Orders"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Ext Orders.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Extract\Staffs"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{e1c270b2-47ee-40dc-869d-2ee60dfeb9ed}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Staffs"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Ext Staffs.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Extract.PrecedenceConstraints[Restricción]"
+          DTS:CreationName=""
+          DTS:DTSID="{890DC2E0-6981-4977-A999-2FB1B5CFA346}"
+          DTS:From="Package\Extract\Customers"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción"
+          DTS:To="Package\Extract\Staffs" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Extract.PrecedenceConstraints[Restricción 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{CD3592F3-9A13-493B-B842-997658C2D1B4}"
+          DTS:From="Package\Extract\Staffs"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción 1"
+          DTS:To="Package\Extract\Orders" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Extract.PrecedenceConstraints[Restricción 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{7F539664-F896-4FEF-B466-41397A4C660B}"
+          DTS:From="Package\Extract\Orders"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción 2"
+          DTS:To="Package\Extract\OrderItems" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="128,41.6"
+          Id="Package\Extract\Customers"
+          TopLeft="20.1714302500901,13.3294137916763" />
+        <NodeLayout
+          Size="136.8,41.6"
+          Id="Package\Extract\Ext Products"
+          TopLeft="21.6000017029899,282.50588815501" />
+        <NodeLayout
+          Size="104.8,41.6"
+          Id="Package\Extract\Staffs"
+          TopLeft="231.600005279269,75.2705911309662" />
+        <EdgeLayout
+          Id="Package\Extract.PrecedenceConstraints[Restricción]"
+          TopLeft="148.17143025009,34.1294137916763">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="83.4285750291785,61.9411773392899"
+              Start="0,0"
+              End="75.9285750291785,61.9411773392899">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="37.7142875145893,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37.7142875145893,0"
+                    Point2="41.7142875145893,0"
+                    Point3="41.7142875145893,4" />
+                  <mssgle:LineSegment
+                    End="41.7142875145893,57.9411773392899" />
+                  <mssgle:CubicBezierSegment
+                    Point1="41.7142875145893,57.9411773392899"
+                    Point2="41.7142875145893,61.9411773392899"
+                    Point3="45.7142875145893,61.9411773392899" />
+                  <mssgle:LineSegment
+                    End="75.9285750291785,61.9411773392899" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="109.6,41.6"
+          Id="Package\Extract\Orders"
+          TopLeft="23.0285731558898,168.56471008644" />
+        <EdgeLayout
+          Id="Package\Extract.PrecedenceConstraints[Restricción 1]"
+          TopLeft="284.000005279269,116.870591130966">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-206.171432123379,51.6941189554735"
+              Start="0,0"
+              End="-206.171432123379,44.1941189554735">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.8470594777368" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.8470594777368"
+                    Point2="0,25.8470594777368"
+                    Point3="-4,25.8470594777368" />
+                  <mssgle:LineSegment
+                    End="-202.171432123379,25.8470594777368" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-202.171432123379,25.8470594777368"
+                    Point2="-206.171432123379,25.8470594777368"
+                    Point3="-206.171432123379,29.8470594777368" />
+                  <mssgle:LineSegment
+                    End="-206.171432123379,44.1941189554735" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="132,41.6"
+          Id="Package\Extract\OrderItems"
+          TopLeft="220.17143365607,224.457758998661" />
+        <EdgeLayout
+          Id="Package\Extract.PrecedenceConstraints[Restricción 2]"
+          TopLeft="132.62857315589,189.36471008644">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="87.54286050018,55.8930489122213"
+              Start="0,0"
+              End="80.04286050018,55.8930489122213">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="39.77143025009,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="39.77143025009,0"
+                    Point2="43.77143025009,0"
+                    Point3="43.77143025009,4" />
+                  <mssgle:LineSegment
+                    End="43.77143025009,51.8930489122213" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43.77143025009,51.8930489122213"
+                    Point2="43.77143025009,55.8930489122213"
+                    Point3="47.77143025009,55.8930489122213" />
+                  <mssgle:LineSegment
+                    End="80.04286050018,55.8930489122213" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="381.6,648"
+          Size="381.6,691.2"
+          Id="Package\Extract"
+          TopLeft="78.5714299094921,87.9411777039301" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
