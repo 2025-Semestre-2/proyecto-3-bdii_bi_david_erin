@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/4/2025 9:32:18 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DAVIDNOTEBOOK"
+  DTS:CreatorName="DAVIDNOTEBOOK\garci"
+  DTS:DTSID="{6BE90912-5DAC-4949-A913-F8055887FE1B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5467.0"
+  DTS:LocaleID="5130"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{9B43DD25-A0E9-4CA8-8D21-D16E4684CE52}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CargarDatos"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{656DB5E4-34D5-4EF7-9E67-18A5A8723DBD}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CargarDatos"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{786C4F2E-CD6D-4D97-8A45-62C779F89A91}"
+          SQLTask:SqlStatementSource="DECLARE @StartDate DATE = '2016-01-01';&#xA;DECLARE @EndDate   DATE = '2030-12-31';&#xA;DECLARE @current_date DATE = @StartDate;&#xA;&#xA;WHILE @current_date &lt;= @EndDate&#xA;BEGIN&#xA;    INSERT INTO DimDate (&#xA;        date_key,&#xA;        date,&#xA;        year,&#xA;        quarter,&#xA;        month,&#xA;        month_name,&#xA;        day,&#xA;        day_of_week,&#xA;        day_name,&#xA;        week,&#xA;        is_weekend,&#xA;        is_holiday&#xA;    )&#xA;    VALUES (&#xA;        CONVERT(INT, FORMAT(@current_date, 'yyyyMMdd')),       -- date_key&#xA;        @current_date,                                         -- date&#xA;        YEAR(@current_date),                                   -- year&#xA;        DATEPART(QUARTER, @current_date),                      -- quarter&#xA;        MONTH(@current_date),                                  -- month&#xA;        DATENAME(MONTH, @current_date),                        -- month_name&#xA;        DAY(@current_date),                                    -- day&#xA;        DATEPART(WEEKDAY, @current_date),                      -- day_of_week&#xA;        DATENAME(WEEKDAY, @current_date),                      -- day_name&#xA;        DATEPART(WEEK, @current_date),                         -- week&#xA;        CASE &#xA;            WHEN DATEPART(WEEKDAY, @current_date) IN (1,7) THEN 1 &#xA;            ELSE 0 &#xA;        END,                                                   -- is_weekend&#xA;        0                                                      -- is_holiday (default)&#xA;    );&#xA;&#xA;    SET @current_date = DATEADD(DAY, 1, @current_date);&#xA;END;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="136.8,41.6"
+          Id="Package\CargarDatos"
+          TopLeft="442.857150398955,214.117650061743" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
