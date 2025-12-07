@@ -3,6 +3,20 @@
     <Configuration>
       <Name>Development</Name>
       <Options>
+        <UserIDs>
+          <ConfigurationSetting>
+            <Id>Bike Stores DW</Id>
+            <Name>Bike Stores DW</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA5TZw6P3Wkk+hutW3TpnLYAAAAAAeAAAAQgBpAGsAZQAgAFMAdABvAHIAZQBzACAARABXAAAAEGYAAAABAAAgAAAAp/vv4/bRNPeWMgMjBZXxGRG/5TXA8pGj5IJcV+1hWzAAAAAADoAAAAACAAAgAAAASI3zeqSjBPeb7MxXHZhGnWUWo2EypY+fYAtGrYy+RKIQAAAAWfrfaDaSKb8fSFZ0omTLikAAAADVWp7iWSrX0fyjr0HcECeBpKjZGVRdHe+rtU1dkx1UuS0a4DHw22WurLtKeC8DQfweAujXxqJG5KHwGhRkVqx9</Value>
+          </ConfigurationSetting>
+        </UserIDs>
+        <UserPasswords>
+          <ConfigurationSetting>
+            <Id>Bike Stores DW</Id>
+            <Name>Bike Stores DW</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA5TZw6P3Wkk+hutW3TpnLYAAAAAAeAAAAQgBpAGsAZQAgAFMAdABvAHIAZQBzACAARABXAAAAEGYAAAABAAAgAAAAeY/GEzqIWacpQ4iURKh0ETuwVoWDQUtcgQ5hwnV3YRcAAAAADoAAAAACAAAgAAAAEAhFM5cu/2ltFPiLfHpVCWJtHSI46PucOq0CtUH1ISQgAAAAONGxUimHZXObOC/g3jhT/FS4BUNEx83sPpdvTS4CdtpAAAAA03/CBxAVlSzqITlNza4Hzcr1ckvWu5+0iGGXfH33ptTnPLnKHSN7pt9ZSkdi8uMojvAakL1nlBg/rDu2N2WIdA==</Value>
+          </ConfigurationSetting>
+        </UserPasswords>
         <TargetServer>localhost</TargetServer>
         <TargetDatabase>SSAS CUBE</TargetDatabase>
         <StartObject>
