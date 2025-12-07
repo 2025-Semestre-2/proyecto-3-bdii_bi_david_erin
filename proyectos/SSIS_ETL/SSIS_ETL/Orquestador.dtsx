@@ -11,8 +11,8 @@
   DTS:LocaleID="5130"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{C32E38BB-3EF5-40F2-B411-0D96CE74BD0F}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{1E62AF0C-F888-4C73-9693-CB0954E6B231}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -296,6 +296,7 @@
           DTS:refId="Package\Transform\Date"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
+          DTS:Disabled="True"
           DTS:DTSID="{cd4f78fe-b25e-43aa-8d4c-b9c568b57a50}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
