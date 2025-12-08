@@ -33,6 +33,21 @@
         <ID>Dim Staff</ID>
       </Dimension>
     </Dimensions>
+    <Cubes>
+      <Cube>
+        <ID>Bike Stores DW</ID>
+        <MeasureGroups>
+          <MeasureGroup>
+            <ID>Fact Sales</ID>
+            <Partitions>
+              <Partition>
+                <ID>Fact Sales</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+        </MeasureGroups>
+      </Cube>
+    </Cubes>
     <DataSourceImpersonationInfo>
       <ImpersonationMode xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Default</ImpersonationMode>
       <ImpersonationInfoSecurity xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Unchanged</ImpersonationInfoSecurity>

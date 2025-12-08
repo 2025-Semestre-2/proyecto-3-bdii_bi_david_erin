@@ -8,7 +8,7 @@
     <TransactionalDeployment>false</TransactionalDeployment>
     <PartitionDeployment>DeployPartitions</PartitionDeployment>
     <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
-    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <ProcessingOption>Default</ProcessingOption>
     <OutputScript></OutputScript>
     <ImpactAnalysisFile></ImpactAnalysisFile>
     <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
@@ -75,9 +75,16 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>8tNjNBF32jLJLwaC2JVgEMj0YA8=8/12/2025 00:26:058/12/2025 00:21:20</TimeStamp>
+        <TimeStamp>8tNjNBF32jLJLwaC2JVgEMj0YA8=8/12/2025 00:32:548/12/2025 00:21:20</TimeStamp>
         <ID>
           <String>Dim Staff</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>Sy/1S81RI+eEcDqn9zRaI2PEsFA=8/12/2025 01:12:148/12/2025 00:34:27pe5ZsG3T7QwcQqKRcVi3QisAyRA=8/12/2025 00:34:278/12/2025 00:34:27</TimeStamp>
+        <ID>
+          <String>Bike Stores DW</String>
         </ID>
       </ObjectSnapshot>
     </ObjectSnapshots>
@@ -92,5 +99,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2025-12-08T06:26:14.34Z</LastDeployed>
+  <LastDeployed>2025-12-08T07:15:29.553333Z</LastDeployed>
 </DeploymentSnapshot>

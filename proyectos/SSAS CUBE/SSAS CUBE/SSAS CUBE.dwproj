@@ -6,6 +6,18 @@
     <Name>SSAS CUBE.database</Name>
     <FullPath>SSAS CUBE.database</FullPath>
   </Database>
+  <Cubes>
+    <ProjectItem>
+      <Name>Bike Stores DW.cube</Name>
+      <FullPath>Bike Stores DW.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Bike Stores DW.partitions</Name>
+          <FullPath>Bike Stores DW.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+  </Cubes>
   <Dimensions>
     <ProjectItem>
       <Name>Dim Product.dim</Name>
