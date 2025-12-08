@@ -6,10 +6,47 @@
     <Name>SSAS CUBE.database</Name>
     <FullPath>SSAS CUBE.database</FullPath>
   </Database>
+  <Dimensions>
+    <ProjectItem>
+      <Name>Dim Product.dim</Name>
+      <FullPath>Dim Product.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dim Store.dim</Name>
+      <FullPath>Dim Store.dim</FullPath>
+    </ProjectItem>
+  </Dimensions>
+  <DataSources>
+    <ProjectItem>
+      <Name>Bike Stores DW.ds</Name>
+      <FullPath>Bike Stores DW.ds</FullPath>
+    </ProjectItem>
+  </DataSources>
+  <DataSourceViews>
+    <ProjectItem>
+      <Name>Bike Stores DW.dsv</Name>
+      <FullPath>Bike Stores DW.dsv</FullPath>
+    </ProjectItem>
+  </DataSourceViews>
   <Configurations>
     <Configuration>
       <Name>Development</Name>
-      <Options />
+      <Options>
+        <ConnectionMappings>
+          <ConfigurationSetting>
+            <Id>Bike Stores DW</Id>
+            <Name>Bike Stores DW</Name>
+            <Value xsi:type="xsd:string">Provider=MSOLEDBSQL.1;Data Source=localhost;Persist Security Info=True;Password=;User ID=;Initial Catalog=BikeStoresDW</Value>
+          </ConfigurationSetting>
+        </ConnectionMappings>
+        <ConnectionSecurityMappings>
+          <ConfigurationSetting>
+            <Id>Bike Stores DW</Id>
+            <Name>Bike Stores DW</Name>
+            <Value xsi:type="xsd:int">1</Value>
+          </ConfigurationSetting>
+        </ConnectionSecurityMappings>
+      </Options>
     </Configuration>
   </Configurations>
 </Project>
