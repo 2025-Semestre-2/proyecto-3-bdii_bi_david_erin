@@ -54,9 +54,30 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>YiNI4wywHlI5hhwrhe36G5VW/8k=7/12/2025 22:33:067/12/2025 22:32:18</TimeStamp>
+        <TimeStamp>YiNI4wywHlI5hhwrhe36G5VW/8k=7/12/2025 22:34:047/12/2025 22:32:18</TimeStamp>
         <ID>
           <String>Dim Stock</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>aco6+Z2ZbVmsDp3mu4gJD0jTZXM=7/12/2025 23:33:077/12/2025 23:09:57</TimeStamp>
+        <ID>
+          <String>Dim Date</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>CbnPjoIkl3n8aH9ZZLf1+k6P6ZE=7/12/2025 23:59:237/12/2025 23:54:26</TimeStamp>
+        <ID>
+          <String>Dim Customer</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>8tNjNBF32jLJLwaC2JVgEMj0YA8=8/12/2025 00:26:058/12/2025 00:21:20</TimeStamp>
+        <ID>
+          <String>Dim Staff</String>
         </ID>
       </ObjectSnapshot>
     </ObjectSnapshots>
@@ -71,5 +92,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2025-12-08T04:33:21.133333Z</LastDeployed>
+  <LastDeployed>2025-12-08T06:26:14.34Z</LastDeployed>
 </DeploymentSnapshot>

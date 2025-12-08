@@ -11,8 +11,8 @@
   DTS:LocaleID="5130"
   DTS:ObjectName="DimStaff"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{342D4847-D554-42BE-96D4-4F498459B92D}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{676123A1-F0AD-4B40-92CA-F9C195BE9161}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -56,7 +56,7 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[EndDate]"
-                      dataType="dbTimeStamp"
+                      dataType="dbDate"
                       description="EndDate"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
@@ -68,13 +68,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">(DT_DBTIMESTAMP)(@[System::CreationDate])</property>
+                          name="Expression">(DT_DBDATE)(@[System::CreationDate])</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">(DT_DBTIMESTAMP)(@[System::CreationDate])</property>
+                          name="FriendlyExpression">(DT_DBDATE)(@[System::CreationDate])</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -130,7 +130,7 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[StartDate]"
-                      dataType="dbTimeStamp"
+                      dataType="dbDate"
                       description="StartDate"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
@@ -142,13 +142,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">(DT_DBTIMESTAMP)(@[System::CreationDate])</property>
+                          name="Expression">(DT_DBDATE)(@[System::CreationDate])</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">(DT_DBTIMESTAMP)(@[System::CreationDate])</property>
+                          name="FriendlyExpression">(DT_DBDATE)(@[System::CreationDate])</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -204,12 +204,12 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
     staff_id,
     first_name + ' ' + last_name AS full_name,
     store_id,
     manager_id
-FROM staffs;</property>
+FROM staffs</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -450,7 +450,7 @@ FROM staffs;</property>
                       lineageId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[manager_id]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Insertar destino.Inputs[OLE DB Destination Input].Columns[StartDate]"
-                      cachedDataType="dbTimeStamp"
+                      cachedDataType="dbDate"
                       cachedName="StartDate"
                       externalMetadataColumnId="Package\Data Flow Task\Insertar destino.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
                       lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[StartDate]" />
@@ -481,11 +481,11 @@ FROM staffs;</property>
                       name="manager_id" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Insertar destino.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
-                      dataType="dbTimeStamp"
+                      dataType="dbDate"
                       name="StartDate" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Insertar destino.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
-                      dataType="dbTimeStamp"
+                      dataType="dbDate"
                       name="EndDate" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Insertar destino.Inputs[OLE DB Destination Input].ExternalColumns[is_current]"
@@ -567,7 +567,7 @@ FROM staffs;</property>
                       lineageId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Output].Columns[staff_id]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[EndDate]"
-                      cachedDataType="dbTimeStamp"
+                      cachedDataType="dbDate"
                       cachedName="EndDate"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[EndDate]" />
@@ -576,7 +576,7 @@ FROM staffs;</property>
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      dataType="dbTimeStamp"
+                      dataType="dbDate"
                       name="Param_0">
                       <properties>
                         <property
@@ -1034,11 +1034,11 @@ FROM staffs;</property>
                       name="store_id" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[StartDate]"
-                      dataType="dbTimeStamp"
+                      dataType="dbDate"
                       name="StartDate" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[EndDate]"
-                      dataType="dbTimeStamp"
+                      dataType="dbDate"
                       name="EndDate" />
                   </externalMetadataColumns>
                 </input>

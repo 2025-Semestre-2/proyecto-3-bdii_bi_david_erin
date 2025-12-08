@@ -23,6 +23,15 @@
       <Dimension>
         <ID>Dim Stock</ID>
       </Dimension>
+      <Dimension>
+        <ID>Dim Date</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim Customer</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim Staff</ID>
+      </Dimension>
     </Dimensions>
     <DataSourceImpersonationInfo>
       <ImpersonationMode xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Default</ImpersonationMode>
