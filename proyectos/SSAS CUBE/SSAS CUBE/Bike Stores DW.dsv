@@ -27,7 +27,7 @@
             <Name>_ALL_TABLES_</Name>
             <DiagramLayout>
               <dds>
-                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="17" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-999" scrolltop="2007" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="89" x="19981" y="17611" backcolor="16119285" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="18" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1474" scrolltop="3683" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="89" x="19981" y="17611" backcolor="16119285" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
                   <font>
                     <ddsxmlobjectstreamwrapper binary="010000009001b0300100065461686f6d61" />
                   </font>
@@ -271,9 +271,9 @@
                     <point x="9469" y="6827" />
                   </connector>
                 </ddscontrol>
-                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="DimStock" left="13839" top="14292" logicalid="16" controlid="16" masterid="0" hint1="0" hint2="0" width="3000" height="2164" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="DimStock" left="12044" top="13933" logicalid="17" controlid="17" masterid="0" hint1="0" hint2="0" width="3000" height="2830" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                   <control>
-                    <ddsxmlobjectstreaminitwrapper binary="000e0000b80b000074080000" />
+                    <ddsxmlobjectstreaminitwrapper binary="000e0000b80b00000e0b0000" />
                   </control>
                   <layoutobject>
                     <ddsxmlobj>
@@ -286,8 +286,8 @@
 </DiagramLayout>
             <ShowRelationshipNames>False</ShowRelationshipNames>
             <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
-            <DiagramViewPortLeft>-999</DiagramViewPortLeft>
-            <DiagramViewPortTop>2007</DiagramViewPortTop>
+            <DiagramViewPortLeft>-1474</DiagramViewPortLeft>
+            <DiagramViewPortTop>3683</DiagramViewPortTop>
             <DiagramBoundingLeft>0</DiagramBoundingLeft>
             <DiagramBoundingTop>0</DiagramBoundingTop>
             <DiagramZoom>89</DiagramZoom>
@@ -505,13 +505,27 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="dbo_DimStock" msprop:design-time-name="0e0ee90c-8b83-499a-b862-d2799f0c98dc" msprop:DbTableName="DimStock" msprop:FriendlyName="DimStock" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+            <xs:element name="dbo_DimStock" msprop:design-time-name="5ae2beb8-1081-468f-8974-25fac11c4ade" msprop:DbTableName="DimStock" msprop:FriendlyName="DimStock" msprop:DbSchemaName="dbo" msprop:TableType="Table">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element name="Stock_key" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="6f0fc9ce-be4b-41bb-a61c-ccf693948968" msprop:DbColumnName="Stock_key" msprop:FriendlyName="Stock_key" type="xs:int" />
-                  <xs:element name="store_id" msprop:design-time-name="b158014d-ea34-4ce1-a603-24e1fce6d035" msprop:DbColumnName="store_id" msprop:FriendlyName="store_id" type="xs:int" />
-                  <xs:element name="product_id" msprop:design-time-name="13d29f25-c475-4379-b546-b35da52899b5" msprop:DbColumnName="product_id" msprop:FriendlyName="product_id" type="xs:int" />
-                  <xs:element name="quantity" msprop:design-time-name="b9e8a3ea-cac1-438f-9a66-67cef589ff96" msprop:DbColumnName="quantity" msprop:FriendlyName="quantity" type="xs:int" minOccurs="0" />
+                  <xs:element name="Stock_key" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="530ac8f9-5432-4da8-a1eb-874dfdaed461" msprop:DbColumnName="Stock_key" msprop:FriendlyName="Stock_key" type="xs:int" />
+                  <xs:element name="store_id" msprop:design-time-name="2e6ba7cf-80fe-4cdb-a2ee-0681cfed6be4" msprop:DbColumnName="store_id" msprop:FriendlyName="store_id" type="xs:int" />
+                  <xs:element name="store_name" msprop:design-time-name="302c2254-2faa-45e7-8c1a-5419dce5b70d" msprop:DbColumnName="store_name" msprop:FriendlyName="store_name">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="product_id" msprop:design-time-name="486549da-e244-4cc2-9be1-c096c5c0d6db" msprop:DbColumnName="product_id" msprop:FriendlyName="product_id" type="xs:int" />
+                  <xs:element name="product_name" msprop:design-time-name="233609b2-b030-4c7e-9d43-46afee89fcfa" msprop:DbColumnName="product_name" msprop:FriendlyName="product_name">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="quantity" msprop:design-time-name="aa4dbb36-9b62-401c-953e-7b9e65f94622" msprop:DbColumnName="quantity" msprop:FriendlyName="quantity" type="xs:int" minOccurs="0" />
                 </xs:sequence>
               </xs:complexType>
             </xs:element>

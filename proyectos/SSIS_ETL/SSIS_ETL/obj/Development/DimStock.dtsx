@@ -11,8 +11,8 @@
   DTS:LocaleID="5130"
   DTS:ObjectName="DimStock"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{DAAD9FA3-4632-4853-B6AA-E043598E63CF}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{B8809AB7-C099-42C4-B633-2FF22A7886D6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -56,16 +56,10 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
-    order_id,
-    order_status,
-    CASE order_status
-        WHEN 1 THEN 'Pending'
-        WHEN 2 THEN 'Processing'
-        WHEN 3 THEN 'Rejected'
-        WHEN 4 THEN 'Completed'
-    END AS status_description
-FROM orders;</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select s.quantity,  p.product_id, p.product_name, st.store_id, st.store_name
+from stocks s
+inner join products p on s.product_id = p.product_id
+inner join stores st on s.store_id = st.store_id</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -82,7 +76,7 @@ FROM orders;</property>
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">2</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
@@ -128,6 +122,28 @@ FROM orders;</property>
                       lineageId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Output].Columns[quantity]"
                       name="quantity"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Output].Columns[product_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Output].ExternalColumns[product_name]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Output].Columns[product_name]"
+                      name="product_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Output].Columns[store_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Output].ExternalColumns[store_name]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Output].Columns[store_name]"
+                      name="store_name"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -143,6 +159,18 @@ FROM orders;</property>
                       refId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Output].ExternalColumns[quantity]"
                       dataType="i4"
                       name="quantity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Output].ExternalColumns[product_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="product_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Output].ExternalColumns[store_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="store_name" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -156,6 +184,13 @@ FROM orders;</property>
                       lineageId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Error Output].Columns[store_id]"
                       name="store_id" />
                     <outputColumn
+                      refId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Error Output].Columns[product_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Error Output].Columns[product_name]"
+                      name="product_name" />
+                    <outputColumn
                       refId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Error Output].Columns[product_id]"
                       dataType="i4"
                       lineageId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Error Output].Columns[product_id]"
@@ -165,6 +200,13 @@ FROM orders;</property>
                       dataType="i4"
                       lineageId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Error Output].Columns[quantity]"
                       name="quantity" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Error Output].Columns[store_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Error Output].Columns[store_name]"
+                      name="store_name" />
                     <outputColumn
                       refId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -261,11 +303,27 @@ FROM orders;</property>
                       externalMetadataColumnId="Package\Data Flow Task\Insertar destino.Inputs[OLE DB Destination Input].ExternalColumns[store_id]"
                       lineageId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Output].Columns[store_id]" />
                     <inputColumn
+                      refId="Package\Data Flow Task\Insertar destino.Inputs[OLE DB Destination Input].Columns[store_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="store_name"
+                      externalMetadataColumnId="Package\Data Flow Task\Insertar destino.Inputs[OLE DB Destination Input].ExternalColumns[store_name]"
+                      lineageId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Output].Columns[store_name]" />
+                    <inputColumn
                       refId="Package\Data Flow Task\Insertar destino.Inputs[OLE DB Destination Input].Columns[product_id]"
                       cachedDataType="i4"
                       cachedName="product_id"
                       externalMetadataColumnId="Package\Data Flow Task\Insertar destino.Inputs[OLE DB Destination Input].ExternalColumns[product_id]"
                       lineageId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Output].Columns[product_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insertar destino.Inputs[OLE DB Destination Input].Columns[product_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="product_name"
+                      externalMetadataColumnId="Package\Data Flow Task\Insertar destino.Inputs[OLE DB Destination Input].ExternalColumns[product_name]"
+                      lineageId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Output].Columns[product_name]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Insertar destino.Inputs[OLE DB Destination Input].Columns[quantity]"
                       cachedDataType="i4"
@@ -284,9 +342,21 @@ FROM orders;</property>
                       dataType="i4"
                       name="store_id" />
                     <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insertar destino.Inputs[OLE DB Destination Input].ExternalColumns[store_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="store_name" />
+                    <externalMetadataColumn
                       refId="Package\Data Flow Task\Insertar destino.Inputs[OLE DB Destination Input].ExternalColumns[product_id]"
                       dataType="i4"
                       name="product_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Insertar destino.Inputs[OLE DB Destination Input].ExternalColumns[product_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="product_name" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Insertar destino.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
                       dataType="i4"
@@ -337,7 +407,7 @@ FROM orders;</property>
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimStock] SET [quantity] = ? WHERE [product_id] = ? AND [store_id] = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimStock] SET [product_name] = ?,[quantity] = ?,[store_name] = ? WHERE [product_id] = ? AND [store_id] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -363,32 +433,50 @@ FROM orders;</property>
                       refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[product_id]"
                       cachedDataType="i4"
                       cachedName="product_id"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       lineageId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Output].Columns[product_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[product_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="product_name"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Output].Columns[product_name]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[quantity]"
                       cachedDataType="i4"
                       cachedName="quantity"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       lineageId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Output].Columns[quantity]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[store_id]"
                       cachedDataType="i4"
                       cachedName="store_id"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                       lineageId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Output].Columns[store_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[store_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="store_name"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Output].Columns[store_name]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
                       name="Param_0">
                       <properties>
                         <property
                           dataType="System.Int32"
                           description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
+                          name="DBParamInfoFlags">65</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -404,8 +492,32 @@ FROM orders;</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
                       name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="i4"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="i4"
+                      name="Param_4">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -466,7 +578,7 @@ FROM orders;</property>
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimStock] SET [quantity] = ? WHERE [product_id] = ? AND [store_id] = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimStock] SET [product_name] = ?,[quantity] = ?,[store_name] = ? WHERE [product_id] = ? AND [store_id] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -492,32 +604,50 @@ FROM orders;</property>
                       refId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[product_id]"
                       cachedDataType="i4"
                       cachedName="product_id"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       lineageId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Output].Columns[product_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[product_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="product_name"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Output].Columns[product_name]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[quantity]"
                       cachedDataType="i4"
                       cachedName="quantity"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       lineageId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Output].Columns[quantity]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[store_id]"
                       cachedDataType="i4"
                       cachedName="store_id"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                       lineageId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Output].Columns[store_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[store_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="store_name"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Output].Columns[store_name]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
                       name="Param_0">
                       <properties>
                         <property
                           dataType="System.Int32"
                           description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
+                          name="DBParamInfoFlags">65</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
@@ -533,8 +663,32 @@ FROM orders;</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
                       name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="i4"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="i4"
+                      name="Param_4">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -589,7 +743,7 @@ FROM orders;</property>
                   dataType="System.String"
                   description="Specifies the SELECT statement used to create a schema rowset."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [product_id], [quantity], [store_id] FROM [dbo].[DimStock]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [product_id], [product_name], [quantity], [store_id], [store_name] FROM [dbo].[DimStock]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
@@ -651,6 +805,21 @@ FROM orders;</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[product_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="product_name"
+                      externalMetadataColumnId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[product_name]"
+                      lineageId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Output].Columns[product_name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
                       refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[quantity]"
                       cachedDataType="i4"
                       cachedName="quantity"
@@ -676,6 +845,21 @@ FROM orders;</property>
                           typeConverter="ColumnType">1</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[store_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="store_name"
+                      externalMetadataColumnId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[store_name]"
+                      lineageId="Package\Data Flow Task\ExtDatos.Outputs[OLE DB Source Output].Columns[store_name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -684,6 +868,12 @@ FROM orders;</property>
                       dataType="i4"
                       name="product_id" />
                     <externalMetadataColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[product_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="product_name" />
+                    <externalMetadataColumn
                       refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[quantity]"
                       dataType="i4"
                       name="quantity" />
@@ -691,6 +881,12 @@ FROM orders;</property>
                       refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[store_id]"
                       dataType="i4"
                       name="store_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[store_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="store_name" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -955,6 +1151,12 @@ FROM orders;</property>
       &lt;ChangeType&gt;None&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;ExtDatos.Outputs[OLE DB Source Output].Columns[product_name]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;product_name&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
       &lt;IdentificationString&gt;ExtDatos.Outputs[OLE DB Source Output].Columns[quantity]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;quantity&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
@@ -965,6 +1167,12 @@ FROM orders;</property>
       &lt;ColumnName&gt;store_id&lt;/ColumnName&gt;
       &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
       &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;ExtDatos.Outputs[OLE DB Source Output].Columns[store_name]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;store_name&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
   &lt;/InputToColumnsCollection&gt;
   &lt;GeneratedComponentsIdentificationStrings&gt;

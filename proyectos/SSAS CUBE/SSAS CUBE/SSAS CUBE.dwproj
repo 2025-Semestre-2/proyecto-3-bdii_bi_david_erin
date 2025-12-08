@@ -15,6 +15,14 @@
       <Name>Dim Store.dim</Name>
       <FullPath>Dim Store.dim</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>Dim Order.dim</Name>
+      <FullPath>Dim Order.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Dim Stock.dim</Name>
+      <FullPath>Dim Stock.dim</FullPath>
+    </ProjectItem>
   </Dimensions>
   <DataSources>
     <ProjectItem>

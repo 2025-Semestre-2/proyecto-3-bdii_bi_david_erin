@@ -17,6 +17,12 @@
       <Dimension>
         <ID>Dim Store</ID>
       </Dimension>
+      <Dimension>
+        <ID>Dim Order</ID>
+      </Dimension>
+      <Dimension>
+        <ID>Dim Stock</ID>
+      </Dimension>
     </Dimensions>
     <DataSourceImpersonationInfo>
       <ImpersonationMode xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Default</ImpersonationMode>
