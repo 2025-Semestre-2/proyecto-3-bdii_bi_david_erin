@@ -2,6 +2,8 @@
 # [NOMBRE DEL PROYECTO]
 ### Nombre y carné de los integrantes: 
 David Calvo Garcia - 2024122451
-Erin Camacho Gonzales - 2024073710
+
+
+Erin Camacho Gonzalez - 2024073710
 
 ### Estado del proyecto: Excelente
