@@ -37,15 +37,35 @@ ORDER BY store_name;</CommandText>
     <DataSet Name="Categorias">
       <Query>
         <DataSourceName>BikeStores</DataSourceName>
-        <CommandText>SELECT NULL AS category_id, '&lt;Todas&gt;' AS category_name
+        <QueryParameters>
+          <QueryParameter Name="@StoreId">
+            <Value>=Parameters!StoreId.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT 
+ NULL AS category_id,
+  '&lt;Todas&gt;' AS category_name
 
 UNION ALL
 
-SELECT category_id, category_name
+SELECT DISTINCT
+ 
+    c.category_id,
+    c.category_name
 
-FROM production.categories
+FROM production.categories AS c
 
-ORDER BY category_name;</CommandText>
+JOIN production.products AS p 
+    ON p.category_id = c.category_id
+
+JOIN production.stocks AS stk
+    ON stk.product_id = p.product_id
+
+WHERE 
+ (@StoreId IS NULL OR stk.store_id = @StoreId)
+
+ORDER BY 
+category_name;</CommandText>
       </Query>
       <Fields>
         <Field Name="category_id">
@@ -62,27 +82,40 @@ ORDER BY category_name;</CommandText>
       <Query>
         <DataSourceName>BikeStores</DataSourceName>
         <QueryParameters>
+          <QueryParameter Name="@StoreId">
+            <Value>=Parameters!StoreId.Value</Value>
+          </QueryParameter>
           <QueryParameter Name="@CategoryId">
             <Value>=Parameters!CategoryId.Value</Value>
           </QueryParameter>
         </QueryParameters>
-        <CommandText>SELECT NULL AS brand_id, '&lt;Todas&gt;' AS brand_name
+        <CommandText>SELECT 
+ NULL AS brand_id,
+  '&lt;Todas&gt;' AS brand_name
 
 UNION ALL
-
-SELECT DISTINCT
- 
-    b.brand_id, 
- 
+SELECT DISTINCT 
+    b.brand_id,
     b.brand_name
 
-FROM production.brands b
-JOIN production.products p
- ON p.brand_id = b.brand_id
-WHERE
- 
-    (@CategoryId IS NULL OR p.category_id = @CategoryId)
-ORDER BY brand_name;</CommandText>
+FROM production.brands AS b
+
+JOIN production.products AS p 
+    ON p.brand_id = b.brand_id
+
+JOIN production.stocks AS stk
+    ON stk.product_id = p.product_id
+
+JOIN production.categories AS c
+    ON c.category_id = p.category_id
+
+WHERE 
+    (@StoreId IS NULL OR stk.store_id = @StoreId)
+
+    AND (@CategoryId IS NULL OR c.category_id = @CategoryId)
+
+ORDER BY 
+    brand_name;</CommandText>
       </Query>
       <Fields>
         <Field Name="brand_id">
@@ -642,7 +675,7 @@ ORDER BY
             <Top>1.73567cm</Top>
             <Left>0.3175cm</Left>
             <Height>5.08cm</Height>
-            <Width>16.12754cm</Width>
+            <Width>16.12753cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>

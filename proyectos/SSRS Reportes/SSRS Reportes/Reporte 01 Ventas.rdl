@@ -245,10 +245,10 @@ ORDER BY
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>6.26424cm</Width>
+                  <Width>4.39099cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>5.11066cm</Width>
+                  <Width>4.67674cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -512,7 +512,7 @@ ORDER BY
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>Cantidad Total</Value>
+                                <Value>Cantidad</Value>
                                 <Style>
                                   <FontFamily>Century</FontFamily>
                                   <FontSize>18pt</FontSize>
@@ -599,7 +599,7 @@ ORDER BY
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>4.0047cm</Size>
+                    <Size>3.57078cm</Size>
                     <CellContents>
                       <Textbox Name="category_name">
                         <CanGrow>true</CanGrow>
@@ -648,7 +648,7 @@ ORDER BY
                         </SortExpression>
                       </SortExpressions>
                       <TablixHeader>
-                        <Size>3.73482cm</Size>
+                        <Size>3.3009cm</Size>
                         <CellContents>
                           <Textbox Name="product_name">
                             <CanGrow>true</CanGrow>
@@ -687,7 +687,7 @@ ORDER BY
                     </TablixMember>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>3.73482cm</Size>
+                        <Size>3.3009cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox94">
                             <CanGrow>true</CanGrow>
@@ -730,7 +730,7 @@ ORDER BY
                 </TablixMember>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>7.73952cm</Size>
+                    <Size>6.87168cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox92">
                         <CanGrow>true</CanGrow>
@@ -773,8 +773,8 @@ ORDER BY
             <DataSetName>Ventas</DataSetName>
             <Top>1.93204cm</Top>
             <Left>0.48659cm</Left>
-            <Height>4.79183cm</Height>
-            <Width>19.11442cm</Width>
+            <Height>4.79184cm</Height>
+            <Width>15.93942cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -805,7 +805,7 @@ ORDER BY
             <rd:DefaultName>Textbox97</rd:DefaultName>
             <Left>0.48659cm</Left>
             <Height>1.12917cm</Height>
-            <Width>19.11442cm</Width>
+            <Width>15.93942cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -1167,8 +1167,8 @@ ORDER BY
             <DataSetName>Ventas</DataSetName>
             <Top>7.58635cm</Top>
             <Left>0.48659cm</Left>
-            <Height>9.68148cm</Height>
-            <Width>19.11442cm</Width>
+            <Height>8.68665cm</Height>
+            <Width>15.93942cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -1183,7 +1183,7 @@ ORDER BY
         <Height>6.79836in</Height>
         <Style />
       </Body>
-      <Width>7.95639in</Width>
+      <Width>6.66472in</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
